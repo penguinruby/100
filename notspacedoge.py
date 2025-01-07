@@ -67,7 +67,7 @@ def main():
             star_add_incr = max(200, star_add_incr-50)
             star_count =0
 
-
+ 
         #開關視窗
         for event in pygame.event.get():
             if event.type  == pygame.QUIT:

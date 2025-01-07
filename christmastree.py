@@ -9,9 +9,9 @@ def clear():
 
 
 def draw_tree(light):
-    print(f"{Fore.GREEN}                    {light}*{Back.YELLOW}")
-    print(f"{Fore.GREEN}                   ***")
-    print(f"{Fore.GREEN}                  *{Fore.RED}o{Fore.GREEN}***")
+    print(f"{Fore.GREEN}                   {light}*{Back.YELLOW}")
+    print(f"{Fore.GREEN}                  ***")
+    print(f"{Fore.GREEN}                 *{Fore.RED}o{Fore.GREEN}***")
     print(f"{Fore.GREEN}               *****{Fore.CYAN}0{Fore.GREEN}***{light}*{Back.RESET}")
     print(f"{Fore.GREEN}              {light}*{Back.RESET}***{Fore.YELLOW}^{Fore.GREEN}*******")
     print(f"{Fore.GREEN}            ***{Fore.CYAN}0{Fore.GREEN}******{Fore.BLUE}Q{Fore.GREEN}*****")
