@@ -21,6 +21,7 @@ STAR_HEIGHT=10
 STAR_VEL=20
 
 
+
 def draw(player, elapsed_time, stars):
     WIN.blit(BG,(0, 0))
 
@@ -31,7 +32,6 @@ def draw(player, elapsed_time, stars):
         pygame.draw.rect(WIN, "white" , star)
 
     pygame.draw.rect(WIN, (255, 0, 155), player) #物件顏色
-    
     pygame.display.update()
 
 
@@ -107,3 +107,5 @@ def main():
 
 if __name__ =="__main__":
     main()
+
+
