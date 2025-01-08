@@ -6,13 +6,13 @@ class WaterRipple:
         self.canvas = canvas
         self.x = x
         self.y = y
-        self.radius = 10
+        self.radius = 10  #波紋變化
         self.max_radius = max_radius
-        self.colors = colors if colors else ["#0000FF","#0066FF","#0099FF","#00CCFF"]
+        self.colors = colors if colors else ["#ff4e4e","#ffff62","#ff0066","#00CCFF"]  #波紋顏色
         self.ripple = None
         self.active = True
-        self.amplitude = 1.0
-        self.wavelength = 50
+        self.amplitude = 10.0  #從中心點擴散開的數值
+        self.wavelength = 500  #數值越大越圓滑  越小越尖銳
         self.animate()
 
     def get_wave_height(self, distance, time):
@@ -23,9 +23,9 @@ class WaterRipple:
     
     def animate(self):
         if self.radius < self.max_radius:
-            self.radius += 5
+            self.radius += 1 #數值越大 波紋擴散越快 在畫面消失的越快
             self.update_wave()
-            self.canvas.after(30, self.animate)
+            self.canvas.after(5, self.animate)  #動作速度 數值越大動的越慢
         else:
             self.active = False
             if self.ripple:
@@ -37,7 +37,7 @@ class WaterRipple:
 
         other_waves =[wave for wave in self.canvas.get_waves() if wave != self]
 
-        num_points = 100
+        num_points = 1000
         points =[]
 
         for i in range(num_points+1):
@@ -92,7 +92,7 @@ class RippleCanvas(tk.Canvas):
 
 
 root =tk.Tk()
-root.title("something")
+root.title("random wave")
 root.geometry("800x600")
 
 canvas = RippleCanvas(root, bg ="#000033", width=800, height=600)
