@@ -99,7 +99,7 @@ def main():
             pygame.time.delay(4000)
             break
 
-
+ 
 
         draw(player, elapsed_time, stars)
 
