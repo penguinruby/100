@@ -1,7 +1,7 @@
 100-day project
 
 day 1: lose in a sec-Space Dodge
-day 2:
+day 2: Christmas tree
 day 3:
 day 4:
 day 5:
