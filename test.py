@@ -1,18 +1,31 @@
 from tkinter import *
 root = Tk()
 
-text= Text(root, width =40, height =10)
-text.pack()
-text.config(wrap ="word")
-text.get("1.0", "end")
-text.get("1.0", "1.end")
-text.insert("1.0 + 2 lines", "Inserted message")
-text.insert("1.0 + 2lines lineend", "and \n More")
+root.option_add("*tearOff", False)
+menuBar = Menu(root)
+root.config(menu= menuBar)
+file = Menu(menuBar)
+edit = Menu(menuBar)
+save = Menu(file)
+help_ =Menu(menuBar)
+menuBar.add_cascade(menu = file, label ="File")
+menuBar.add_cascade(menu = edit, label ="Edit")
+menuBar.add_cascade(menu = help_, label ="Help")
+file.add_command(label = "New", command = lambda:print("New File"))
 
-text.delete("1.0")
-text.replace("1.0","1.0 lineend","This is the first line")
-text.delete("1.0","3.0 lineend")
-text.replace("1.0","1.0 lineend","This is the first line")
+file.add_separator()
+file.add_command(label = "open...", command = lambda: print("Opening File..."))
+file.add_command(label ="Save", command= lambda :print("Save File"))
+file.entryconfig("New", accelerator =" Ctrl + N")
+# file.entryconfig("New", state ="disable")
+# file.delete("Save")
+file.add_cascade(menu = save, label= "Save")
+save.add_command(label = "Save As", command = lambda: print("saving As..."))
+
+choice = IntVar
+edit.add_radiobutton(label="1", variable= choice, value = 1)
+
+
 
 
 root.mainloop()
