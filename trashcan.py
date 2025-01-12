@@ -11,7 +11,7 @@ clock = pygame.time.Clock()
 
 can_back_raw = pygame.image.load("C:\\Users\\user\\Desktop\\python\\100\\trash_can_back.png").convert_alpha()
 can_front_raw = pygame.image.load("C:\\Users\\user\\Desktop\\python\\100\\trash_can_front.png").convert_alpha()
-garbage_raw = pygame.image.load("C:\\Users\\user\\Desktop\\python\\100\\trash_can_front.png").convert_alpha()
+garbage_raw = pygame.image.load("C:\\Users\\user\\Desktop\\python\\100\\images.png").convert_alpha()
 
 SCALE_CAN = 0.4
 SCALE_GARBAGE = 0.25
