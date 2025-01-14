@@ -1,6 +1,7 @@
 import pygame
 from copy import deepcopy
 from random import choice, randrange
+import time
 
 W, H =10,20
 TILE = 45
@@ -26,8 +27,12 @@ figures = [[pygame.Rect( x+W//2, y+1 ,1,1) for x,y in fig_pos] for fig_pos in fi
 figure_rect = pygame.Rect(0, 0, TILE-2, TILE-2)
 field =[[0 for i in range(W)] for j in range(H)]
 
-anim_count, anim_speed, anim_limit = 0, 60, 2000
+anim_count, anim_speed, anim_limit = 0, 10, 2000
 figure = deepcopy(choice(figures))
+
+
+get_color = lambda : (randrange(30, 256), randrange(30, 256), randrange(30, 256))
+color = get_color()
 
 def check_borders():
     if figure[i].x < 0 or figure[i].x > W-1:
@@ -35,6 +40,17 @@ def check_borders():
     elif figure[i].y > H-1 or field[figure[i].y][figure[i].x]:
         return False
     return True
+
+
+
+def reset_game():
+    global field, figure, color, anim_count, anim_limit
+    field = [[0 for _ in range(W)] for _ in range(H)]
+    figure = deepcopy(choice(figures))
+    color = get_color()
+    anim_count = 0
+    anim_limit = 2000
+
 
 
 while True:
@@ -46,9 +62,9 @@ while True:
             exit()
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_LEFT:
-                dx = -2
+                dx = -1
             elif event.key == pygame.K_RIGHT:
-                dx = 2
+                dx = 1
             elif event.key == pygame.K_DOWN:
                 anim_limit = 100
             elif event.key == pygame.K_UP:
@@ -90,6 +106,16 @@ while True:
                 break
 
 #check lines
+    line = H-1
+    for row in range(H-1 , -1, -1):
+        count = 0
+        for i in range (W):
+            if field[row][i]:
+                count += 1
+            field[line][i] = field[row][i]
+        if count < W:
+            line -= 1
+
 
 #draw grid
     [pygame.draw.rect(game_sc,(40,40,40), i_rect ,1) for i_rect in grid]
@@ -105,6 +131,19 @@ while True:
             if col:
                 figure_rect.x, figure_rect.y = x*TILE, y*TILE
                 pygame.draw.rect(game_sc, col, figure_rect)
+    
+
+    #game over
+    for i in range(W):
+        if field[0][i]:
+            field =[[0 for i in range(W) for i in range(H)]]
+            for i_rect in grid:
+                pygame.draw.rect(game_sc, get_color(), i_rect)
+                pygame.display.flip()
+                clock.tick(200)
+
+            time.sleep(2)  # Pause for a moment
+            reset_game()  # Restart the game
 
 
     pygame.display.flip()
