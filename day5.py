@@ -27,13 +27,15 @@ figures = [[pygame.Rect( x+W//2, y+1 ,1,1) for x,y in fig_pos] for fig_pos in fi
 figure_rect = pygame.Rect(0, 0, TILE-2, TILE-2)
 field =[[0 for i in range(W)] for j in range(H)]
 
+#speed是下降的速度
 anim_count, anim_speed, anim_limit = 0, 10, 2000
 figure = deepcopy(choice(figures))
 
-
+#最後結束的色彩
 get_color = lambda : (randrange(30, 256), randrange(30, 256), randrange(30, 256))
 color = get_color()
 
+#檢查邊界
 def check_borders():
     if figure[i].x < 0 or figure[i].x > W-1:
         return False
@@ -42,7 +44,7 @@ def check_borders():
     return True
 
 
-
+#重來
 def reset_game():
     global field, figure, color, anim_count, anim_limit
     field = [[0 for _ in range(W)] for _ in range(H)]
