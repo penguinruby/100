@@ -25,7 +25,7 @@ yes_button.pack(side=tk.LEFT, padx = 50)
 
 no_button = tk. Button(root, text="I am cake", font=("comicsans", 10), command=you_got_me)
 no_button.place(x=250, y =100)  #按鈕一開始的位置
-no_button.bind("<Enter>", move_no_button)
+no_button.bind("<Enter>", move_no_button) #標籤通常沒有 command 屬性，所以如果你想要excute一些動作，就會用bind,就是當滑鼠碰到那個東西時的動作
 
 root.mainloop()
 
