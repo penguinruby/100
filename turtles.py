@@ -5,37 +5,21 @@ import random
 WIDTH, HEIGHT = 500, 500
 COLORS = ["red","green", "yellow", "black","pink", "cyan", "blue","orange", "purple","brown"]
 
-# def get_number_of_racers():
-#     racers =0
-#     while True:
-#         try: 
-#             racers =int(input(" Enter the numbers: (2~10): "))
-#             if 2 <= racers <=10:
-#                 return 
-#             else:
-#                 print("Need to between 2 to 10.")
-#                 continue   #這必須存在，因為下面還有程式馬，如果沒有這行，程式會結束
-#         except:
-#             print("Need to be numeric...Try again!")
-#             continue
-#         return.
-
-
 def get_number_of_racers():
-	racers = 0
-	while True:
-		racers = input('Enter the number of racers (2 - 10): ')
-		if racers.isdigit():
-			racers = int(racers)
-		else:
-			print('Input is not numeric... Try Again!')
-			continue
+    racers =0
+    while True:
+        try: 
+            racers =int(input(" Enter the numbers: (2~10): "))
+            if 2 <= racers <=10:
+                return racers
+            else:
+                print("Need to between 2 to 10.")
+                continue   #這必須存在，因為下面還有程式馬，如果沒有這行，程式會結束
+        except:
+            print("Need to be numeric...Try again!")
+            continue
+        return
 
-		if 2 <= racers <= 10:
-			return racers
-		else:
-			print('Number not in range 2-10. Try Again!')
-    
 def race(colors):
     turtles = creat_turtle(colors)
     while True:
@@ -68,14 +52,18 @@ def creat_turtle(colors):
 def init_turtle():
     screen = turtle.Screen()
     screen.setup(WIDTH, HEIGHT)
-    screen.title("turtle race")
+    screen.title('Turtle Racing!')
+
+
 
 racers = get_number_of_racers()  #如果想列印出東西，必須先將這個存入變數
 init_turtle()
-random.shuffle(COLORS)
 
-colors =COLORS[:racers]
-time.sleep(5)
+
+random.shuffle(COLORS)
+colors = COLORS[:racers]
+winner = race(colors)
+time.sleep(3)
 
 #要把烏龜跑的縣拿掉
 #要做一些變化 例如讓烏龜永遠跑不到終點
