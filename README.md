@@ -1,13 +1,13 @@
 100-day project
 
-day 1: lose in a sec-Space Dodge
+day 1: lose in a sec-Space Dodge -pygame
 day 2: Christmas tree
-day 3: random wave
-day 4:
-day 5:
-day 6:
-day 7:
-day 8:
+day 3: random wave-tkinter
+day 4: trash can --pygame
+day 5: tetris-pygame
+day 6: not click-tkinter
+day 7: Running turtle-pygame
+day 8: flip toast-pygame
 day 9:
 day 10:
 day 11:
