@@ -9,7 +9,6 @@ day 6: not click-tkinter
 day 7: Running turtle-pygame
 day 8: flip toast-pygame
 
-
 day 9:
 day 10:
 day 11:
