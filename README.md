@@ -1,6 +1,6 @@
 100-day project
 
-day 1: lose in a sec-Space Dodge -pygame
+day 1: lose in a sec-Space Dodge -pygame  
 day 2: Christmas tree    
 day 3: random wave-tkinter    
 day 4: trash can --pygame    
